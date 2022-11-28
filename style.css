@@ -10,6 +10,27 @@ h1{
 h2{
     text-align: left;
 }
+
+/* Menu */
+#menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+ul li{
+    display: inline-block;
+}
+
+button{
+    padding: 10px 20px;
+    margin: 0 20px;
+}
+
+
+/* End of menu */
+
 #main{
     display: flex;
     flex-wrap: wrap;
