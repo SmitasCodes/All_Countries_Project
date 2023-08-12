@@ -23,6 +23,33 @@ function countriesOutput() {
     // Each div for a country
     const one_country = document.createElement("div");
     one_country.classList.add("country");
+    // Continent
+    let continent = document.createElement("h4");
+    continent.innerText = country.continents[0];
+    continent.classList.add("continent");
+    if (country.continents[0] == "Europe") {
+      continent.classList.add("background_europe");
+      continent.classList.add("europe");
+    } else if (country.continents[0] == "Asia") {
+      continent.classList.add("background_asia");
+      continent.classList.add("asia");
+    } else if (country.continents[0] == "Antarctica") {
+      continent.classList.add("background_antarctica");
+      continent.classList.add("antarctica");
+    } else if (country.continents[0] == "Africa") {
+      continent.classList.add("background_africa");
+      continent.classList.add("africa");
+    } else if (country.continents[0] == "North America") {
+      continent.classList.add("background_north_america");
+      continent.classList.add("north_america");
+    } else if (country.continents[0] == "South America") {
+      continent.classList.add("background_south_america");
+      continent.classList.add("south_america");
+    } else if (country.continents[0] == "Oceania") {
+      continent.classList.add("background_oceania");
+      continent.classList.add("oceania");
+    }
+    one_country.appendChild(continent);
     // Country name
     const one_name = document.createElement("h2");
     one_name.classList.add("country_name");
@@ -38,35 +65,6 @@ function countriesOutput() {
       capital.innerText = country.capital[0];
       one_country.appendChild(capital);
     }
-    // Continent
-    let continent = document.createElement("h4");
-    continent.innerText = country.continents[0];
-    continent.classList.add("continent");
-    if (country.continents[0] == undefined) {
-      continent.classList.add("yellow");
-    } else if (country.continents[0] == "Europe") {
-      continent.classList.add("li_europe");
-      continent.classList.add("europe");
-    } else if (country.continents[0] == "Asia") {
-      continent.classList.add("li_asia");
-      continent.classList.add("asia");
-    } else if (country.continents[0] == "Antarctica") {
-      continent.classList.add("li_antarctica");
-      continent.classList.add("antarctica");
-    } else if (country.continents[0] == "Africa") {
-      continent.classList.add("li_africa");
-      continent.classList.add("africa");
-    } else if (country.continents[0] == "North America") {
-      continent.classList.add("li_north_america");
-      continent.classList.add("north_america");
-    } else if (country.continents[0] == "South America") {
-      continent.classList.add("li_south_america");
-      continent.classList.add("south_america");
-    } else if (country.continents[0] == "Oceania") {
-      continent.classList.add("li_oceania");
-      continent.classList.add("oceania");
-    }
-    one_country.appendChild(continent);
     // Borders
     if (country.borders != undefined) {
       let borders = document.createElement("h5");

@@ -13,7 +13,7 @@ body {
 /* Global */
 
 h1 {
-  text-align: center;
+  margin: 10px 0;
 }
 
 h2 {
@@ -21,30 +21,30 @@ h2 {
 }
 
 /* Menu */
-#menu {
-  margin: 40px auto;
+nav {
   width: 100%;
   max-width: 1024px;
-  text-align: center;
+  margin: 20px auto;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
+nav ul li {
   display: inline-block;
-  padding: 15px 0;
+  margin: 0px 10px 10px 0;
 }
 
-a {
-  padding: 10px 20px;
-  margin: 0 20px;
-  border: 2px solid #000;
+nav ul li a {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 2px solid #333;
   cursor: pointer;
-  text-decoration: none;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover{
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Countries and cards */
@@ -63,68 +63,108 @@ a {
   border-radius: 5px;
   text-align: center;
   width: calc(25% - 10px);
-  height: 50vh;
+  min-height: 50vh;
   overflow-wrap: break-word;
-  position: relative;
   padding: 5px;
+  position: relative;
 }
 
 .country_name {
-  width: 70%;
   font-size: 1.3em;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-top: 35px;
 }
 
 img {
   max-width: 100%;
-  max-height: 190px;
+  max-height: 200px;
   padding: 40px 0;
 }
 
 .continent {
+  font-size: 20px;
+  width: 100%;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  min-height: 30px;
-  padding: 5px;
-  width: 30%;
   top: 0;
-  right: 0;
+  left: 0;
 }
 
 /* Colors for menu li elements and continents in a card */
-.li_all {
+.background_all {
   background-color: #dd581a;
 }
 
-.li_oceania {
-  background-color: #C0737A;
+.background_oceania {
+  background-color: #c0737a;
 }
 
-.li_africa {
-  background-color: #E3CBAF;
+.background_africa {
+  background-color: #e3cbaf;
 }
 
-.li_south_america {
-  background-color: #DAA520;
+.background_south_america {
+  background-color: #daa520;
 }
 
-.li_north_america {
-  background-color: #228B22;
+.background_north_america {
+  background-color: #228b22;
 }
 
-.li_europe {
-  background-color: #4169E1;
+.background_europe {
+  background-color: #4169e1;
 }
 
-.li_asia {
-  background-color: #DC143C;
+.background_asia {
+  background-color: #dc143c;
 }
 
-.li_antarctica {
-  background-color: #9ED1E6;
+.background_antarctica {
+  background-color: #9ed1e6;
 }
+
+/* Hover colors for menu */
+
+nav ul li a.background_all:hover {
+  background-color: #b03500; 
+}
+
+nav ul li a.background_oceania:hover {
+  background-color: #a13155; 
+}
+
+nav ul li a.background_africa:hover {
+  background-color: #b88d40; 
+}
+
+nav ul li a.background_south_america:hover {
+  background-color: #996500; 
+}
+
+nav ul li a.background_north_america:hover {
+  background-color: #0b6600; 
+}
+
+nav ul li a.background_europe:hover {
+  background-color: #143a9e; 
+}
+
+nav ul li a.background_asia:hover {
+  background-color: #9b0718; 
+}
+
+nav ul li a.background_antarctica:hover {
+  background-color: #4f7e8e; 
 
 /* Svg styling */
-
-object{
+object {
   width: 100%;
   max-width: 750px;
   margin: 20px 0;
@@ -144,11 +184,8 @@ object{
 }
 
 @media screen and (max-width: 450px) {
-  #main > div {
-    width: 100%;
-  }
-  ul li {
+  nav ul li {
     display: block;
-    margin-bottom: 10px;
+    margin-right: 0;
   }
 }
