@@ -22,12 +22,12 @@ document.querySelectorAll(".menu-item").forEach((item) => {
     main.innerHTML = "";
     countriesOutput();
     filter(target);
-    continentsSvg(target);
+    continentsColorsSvg(target);
   });
 });
 
 // Logging countries
-function countriesOutput() {
+const countriesOutput = () => {
   countries.map((country) => {
     // Each div for a country
     const one_country = document.createElement("div");
@@ -97,15 +97,17 @@ function countriesOutput() {
     // END
     main.appendChild(one_country);
   });
-}
-const continentsSvg = (continent) => {
+};
+const continentsColorsSvg = (continent) => {
   const allContinentPaths = svgDoc.querySelectorAll('[id$="_svg"]');
 
   // Chaning colors for all the countries
   if (continent === "all") {
     allContinentPaths.forEach((path) => {
       const currentContinent = path.id.replace(/_svg$/, "");
-      const continentClass = document.querySelector(`.background_${currentContinent}`);
+      const continentClass = document.querySelector(
+        `.background_${currentContinent}`
+      );
       const continentStyles = window.getComputedStyle(continentClass);
       const continentColor = continentStyles.backgroundColor;
       path.setAttribute("fill", continentColor);
@@ -147,7 +149,7 @@ const continentsSvg = (continent) => {
 };
 
 // Filter function
-function filter(continents) {
+const filter = (continents) => {
   document.querySelectorAll("h4").forEach((continent) => {
     continents == "all"
       ? " "
@@ -155,9 +157,8 @@ function filter(continents) {
       ? continent.parentElement.remove()
       : " ";
   });
-}
+};
 
 // Calling countriesOutput to display all the countries once page loads
 countriesOutput();
-continentsSvg('all');
-
+continentsColorsSvg("all");
