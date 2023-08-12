@@ -10,38 +10,84 @@
   <body>
     <h1>Countries of the world</h1>
 
+    <!-- Navbar with continents -->
     <nav id="menu">
-      <!-- Menu -->
       <ul id="menu-items">
-        <li><a id="all" class="background_all menu-item">All</a></li>
-        <li><a id="asia" class="background_asia menu-item">Asia</a></li>
-        <li><a id="europe" class="background_europe menu-item">Europe</a></li>
         <li>
-          <a id="north_america" class="background_north_america menu-item">
-            North America
-          </a>
+          <a
+            id="all"
+            class="background_all menu-item"
+            data-selected-color="#b03500"
+            >All</a
+          >
         </li>
         <li>
-          <a id="south_america" class="background_south_america menu-item">
-            South America
-          </a>
+          <a
+            id="asia"
+            class="background_asia menu-item"
+            data-selected-color="#9b0718"
+            >Asia</a
+          >
         </li>
-        <li><a id="africa" class="background_africa menu-item">Africa</a></li>
         <li>
-          <a id="oceania" class="background_oceania menu-item">Oceania</a>
+          <a
+            id="europe"
+            class="background_europe menu-item"
+            data-selected-color="#143a9e"
+            >Europe</a
+          >
         </li>
         <li>
-          <a id="antarctica" class="background_antarctica menu-item">Antarctica</a>
+          <a
+            id="north_america"
+            class="background_north_america menu-item"
+            data-selected-color="#0b6600"
+            >North America</a
+          >
+        </li>
+        <li>
+          <a
+            id="south_america"
+            class="background_south_america menu-item"
+            data-selected-color="#996500"
+            >South America</a
+          >
+        </li>
+        <li>
+          <a
+            id="africa"
+            class="background_africa menu-item"
+            data-selected-color="#b88d40"
+            >Africa</a
+          >
+        </li>
+        <li>
+          <a
+            id="oceania"
+            class="background_oceania menu-item"
+            data-selected-color="#a13155"
+            >Oceania</a
+          >
+        </li>
+        <li>
+          <a
+            id="antarctica"
+            class="background_antarctica menu-item"
+            data-selected-color="#4f7e8e"
+            >Antarctica</a
+          >
         </li>
       </ul>
     </nav>
 
+    <!-- Continents svg -->
     <object
       id="external-svg"
       data="Continents.svg"
       type="image/svg+xml"
     ></object>
 
+    <!-- Main div where cards with countries are displayed -->
     <div id="main"></div>
 
     <script src="js.js" type="module"></script>

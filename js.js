@@ -9,6 +9,15 @@ let previousContinent = null;
 // Event Listeners
 document.querySelectorAll(".menu-item").forEach((item) => {
   item.addEventListener("click", function (e) {
+    document
+      .querySelectorAll(".menu-item")
+      .forEach((item) => item.classList.remove("selected"));
+    item.classList.add("selected");
+    document.documentElement.style.setProperty(
+      "--selected-color",
+      item.dataset.selectedColor
+    );
+
     let target = e.target.id;
     main.innerHTML = "";
     countriesOutput();
@@ -96,7 +105,7 @@ const continentsSvg = (continent) => {
   if (continent === "all") {
     allContinentPaths.forEach((path) => {
       const currentContinent = path.id.replace(/_svg$/, "");
-      const continentClass = document.querySelector(`.li_${currentContinent}`);
+      const continentClass = document.querySelector(`.background_${currentContinent}`);
       const continentStyles = window.getComputedStyle(continentClass);
       const continentColor = continentStyles.backgroundColor;
       path.setAttribute("fill", continentColor);
@@ -129,16 +138,13 @@ const continentsSvg = (continent) => {
 
   // Change color for the selected continent
   const svgPath = svgDoc.getElementById(`${continent}_svg`);
-  const continentClass = document.querySelector(`.li_${continent}`);
+  const continentClass = document.querySelector(`.background_${continent}`);
   const continentStyles = window.getComputedStyle(continentClass);
   const continentColor = continentStyles.backgroundColor;
   svgPath.setAttribute("fill", continentColor);
 
   previousContinent = continent;
 };
-
-// Calling coutnriesOutput to display all the countries once page loads
-countriesOutput();
 
 // Filter function
 function filter(continents) {
@@ -150,3 +156,8 @@ function filter(continents) {
       : " ";
   });
 }
+
+// Calling countriesOutput to display all the countries once page loads
+countriesOutput();
+continentsSvg('all');
+

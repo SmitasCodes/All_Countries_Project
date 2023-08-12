@@ -41,10 +41,15 @@ nav ul li a {
   cursor: pointer;
   width: 100%;
   transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item.selected {
+  background-color: var(--selected-color);
 }
 
 /* Countries and cards */
@@ -130,38 +135,37 @@ img {
   background-color: #9ed1e6;
 }
 
-/* Hover colors for menu */
-
 nav ul li a.background_all:hover {
-  background-color: #b03500; 
+  background-color: #b03500;
 }
 
 nav ul li a.background_oceania:hover {
-  background-color: #a13155; 
+  background-color: #a13155;
 }
 
 nav ul li a.background_africa:hover {
-  background-color: #b88d40; 
+  background-color: #b88d40;
 }
 
 nav ul li a.background_south_america:hover {
-  background-color: #996500; 
+  background-color: #996500;
 }
 
 nav ul li a.background_north_america:hover {
-  background-color: #0b6600; 
+  background-color: #0b6600;
 }
 
 nav ul li a.background_europe:hover {
-  background-color: #143a9e; 
+  background-color: #143a9e;
 }
 
 nav ul li a.background_asia:hover {
-  background-color: #9b0718; 
+  background-color: #9b0718;
 }
 
 nav ul li a.background_antarctica:hover {
-  background-color: #4f7e8e; 
+  background-color: #4f7e8e;
+}
 
 /* Svg styling */
 object {
