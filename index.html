@@ -4,34 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>countries</title>
+    <title>All Countries</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Countries of the world</h1>
-    <div id="menu">
+
+    <nav id="menu">
       <!-- Menu -->
       <ul id="menu-items">
-        <li><a id="all" class="bordo menu-item">All</a></li>
-        <li><a id="asia" class="brown menu-item">Asia</a></li>
-        <li><a id="europe" class="blue menu-item">Europe</a></li>
+        <li><a id="all" class="li_all menu-item">All</a></li>
+        <li><a id="asia" class="li_asia menu-item">Asia</a></li>
+        <li><a id="europe" class="li_europe menu-item">Europe</a></li>
         <li>
-          <a id="north_america" class="red menu-item">
+          <a id="north_america" class="li_north_america menu-item">
             North America
           </a>
         </li>
         <li>
-          <a id="south_america" class="purple menu-item">
+          <a id="south_america" class="li_south_america menu-item">
             South America
           </a>
         </li>
-        <li><a id="africa" class="green menu-item">Africa</a></li>
+        <li><a id="africa" class="li_africa menu-item">Africa</a></li>
         <li>
-          <a id="oceania" class="darkBlue menu-item">Oceania</a>
+          <a id="oceania" class="li_oceania menu-item">Oceania</a>
+        </li>
+        <li>
+          <a id="antarctica" class="li_antarctica menu-item">Antarctica</a>
         </li>
       </ul>
-    </div>
+    </nav>
+
+    <object
+      id="external-svg"
+      data="Continents.svg"
+      type="image/svg+xml"
+    ></object>
+
     <div id="main"></div>
+
     <script src="js.js" type="module"></script>
   </body>
 </html>

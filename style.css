@@ -6,6 +6,8 @@
 
 body {
   padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 /* Global */
@@ -46,7 +48,6 @@ a {
 }
 
 /* Countries and cards */
-
 #main {
   display: flex;
   flex-wrap: wrap;
@@ -88,44 +89,45 @@ img {
   right: 0;
 }
 
-.red {
-  background-color: red;
+/* Colors for menu li elements and continents in a card */
+.li_all {
+  background-color: #dd581a;
 }
 
-.yellow {
-  background-color: yellow;
+.li_oceania {
+  background-color: #C0737A;
 }
 
-.green {
-  background-color: green;
+.li_africa {
+  background-color: #E3CBAF;
 }
 
-.purple {
-  background-color: purple;
+.li_south_america {
+  background-color: #DAA520;
 }
 
-.gray {
-  background-color: grey;
+.li_north_america {
+  background-color: #228B22;
 }
 
-.lime {
-  background-color: lime;
+.li_europe {
+  background-color: #4169E1;
 }
 
-.brown {
-  background-color: burlywood;
+.li_asia {
+  background-color: #DC143C;
 }
 
-.blue {
-  background-color: cyan;
+.li_antarctica {
+  background-color: #9ED1E6;
 }
 
-.darkBlue {
-  background-color: rgb(82, 82, 255);
-}
+/* Svg styling */
 
-.bordo {
-  background-color: rgb(144, 18, 67);
+object{
+  width: 100%;
+  max-width: 750px;
+  margin: 20px 0;
 }
 
 /* Queries for responsive design */

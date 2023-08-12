@@ -1,20 +1,19 @@
 import countries from "./data.js";
 
-
-// Main div
+// Global Variables
 let main = document.querySelector("#main");
-
-console.log(document.querySelector("#sss"))
+const objectElement = document.querySelector("#external-svg");
+const svgDoc = objectElement.contentDocument;
+let previousContinent = null;
 
 // Event Listeners
 document.querySelectorAll(".menu-item").forEach((item) => {
   item.addEventListener("click", function (e) {
-    let target = e.target.innerText;
-    target == "North America" ? (target = "North_America") : "";
-    target == "South America" ? (target = "South_America") : "";
+    let target = e.target.id;
     main.innerHTML = "";
     countriesOutput();
     filter(target);
+    continentsSvg(target);
   });
 });
 
@@ -26,7 +25,7 @@ function countriesOutput() {
     one_country.classList.add("country");
     // Country name
     const one_name = document.createElement("h2");
-    one_name.classList.add("country_name")
+    one_name.classList.add("country_name");
     one_name.innerText = country.name.common;
     one_country.appendChild(one_name);
     // Img
@@ -46,26 +45,26 @@ function countriesOutput() {
     if (country.continents[0] == undefined) {
       continent.classList.add("yellow");
     } else if (country.continents[0] == "Europe") {
-      continent.classList.add("blue");
-      continent.classList.add("Europe");
+      continent.classList.add("li_europe");
+      continent.classList.add("europe");
     } else if (country.continents[0] == "Asia") {
-      continent.classList.add("brown");
-      continent.classList.add("Asia");
+      continent.classList.add("li_asia");
+      continent.classList.add("asia");
     } else if (country.continents[0] == "Antarctica") {
-      continent.classList.add("lime");
-      continent.classList.add("Antarctica");
+      continent.classList.add("li_antarctica");
+      continent.classList.add("antarctica");
     } else if (country.continents[0] == "Africa") {
-      continent.classList.add("gray");
-      continent.classList.add("Africa");
+      continent.classList.add("li_africa");
+      continent.classList.add("africa");
     } else if (country.continents[0] == "North America") {
-      continent.classList.add("red");
-      continent.classList.add("North_America");
+      continent.classList.add("li_north_america");
+      continent.classList.add("north_america");
     } else if (country.continents[0] == "South America") {
-      continent.classList.add("purple");
-      continent.classList.add("South_America");
+      continent.classList.add("li_south_america");
+      continent.classList.add("south_america");
     } else if (country.continents[0] == "Oceania") {
-      continent.classList.add("darkBlue");
-      continent.classList.add("Oceania");
+      continent.classList.add("li_oceania");
+      continent.classList.add("oceania");
     }
     one_country.appendChild(continent);
     // Borders
@@ -92,6 +91,53 @@ function countriesOutput() {
     main.appendChild(one_country);
   });
 }
+const continentsSvg = (continent) => {
+  const allContinentPaths = svgDoc.querySelectorAll('[id$="_svg"]');
+
+  // Chaning colors for all the countries
+  if (continent === "all") {
+    allContinentPaths.forEach((path) => {
+      const currentContinent = path.id.replace(/_svg$/, "");
+      const continentClass = document.querySelector(`.li_${currentContinent}`);
+      const continentStyles = window.getComputedStyle(continentClass);
+      const continentColor = continentStyles.backgroundColor;
+      path.setAttribute("fill", continentColor);
+    });
+
+    previousContinent = "all";
+    return;
+  }
+
+  // Black out continents if previously selected continent was 'all'
+  if (previousContinent === "all") {
+    allContinentPaths.forEach((path) => {
+      path.setAttribute("fill", "#000");
+    });
+  }
+
+  if (previousContinent && previousContinent !== "all") {
+    const previousSvgPath = svgDoc.getElementById(`${previousContinent}_svg`);
+    previousSvgPath.setAttribute("fill", "#000");
+  }
+
+  // Antarctica wasn't in svg file, so it's not displayed
+  if (continent === "antarctica") {
+    if (previousContinent && previousContinent !== "all") {
+      const previousSvgPath = svgDoc.getElementById(`${previousContinent}_svg`);
+      previousSvgPath.setAttribute("fill", "#000");
+    }
+    return;
+  }
+
+  // Change color for the selected continent
+  const svgPath = svgDoc.getElementById(`${continent}_svg`);
+  const continentClass = document.querySelector(`.li_${continent}`);
+  const continentStyles = window.getComputedStyle(continentClass);
+  const continentColor = continentStyles.backgroundColor;
+  svgPath.setAttribute("fill", continentColor);
+
+  previousContinent = continent;
+};
 
 // Calling coutnriesOutput to display all the countries once page loads
 countriesOutput();
@@ -99,7 +145,7 @@ countriesOutput();
 // Filter function
 function filter(continents) {
   document.querySelectorAll("h4").forEach((continent) => {
-    continents == "All"
+    continents == "all"
       ? " "
       : continent.classList.contains(continents) == false
       ? continent.parentElement.remove()
