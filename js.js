@@ -17,6 +17,7 @@ document.querySelectorAll(".menu-item").forEach((item) => {
       "--selected-color",
       item.dataset.selectedColor
     );
+
     main.innerHTML = "";
     countriesOutput();
     let target = e.target.id;
@@ -125,7 +126,7 @@ const continentsColorsSvg = (continent) => {
     allContinentPaths.forEach((path) => {
       const currentContinent = path.id.replace(/_svg$/, "");
       const continentClass = document.querySelector(
-        `.background_${currentContinent}`
+        `h4.background_${currentContinent}`
       );
       const continentStyles = window.getComputedStyle(continentClass);
       const continentColor = continentStyles.backgroundColor;
@@ -135,7 +136,6 @@ const continentsColorsSvg = (continent) => {
     previousContinent = "all";
     return;
   }
-
   // Black out continents if previously selected continent was 'all'
   if (previousContinent === "all") {
     allContinentPaths.forEach((path) => {
@@ -159,7 +159,7 @@ const continentsColorsSvg = (continent) => {
 
   // Change color for the selected continent
   const svgPath = svgDoc.getElementById(`${continent}_svg`);
-  const continentClass = document.querySelector(`.background_${continent}`);
+  const continentClass = document.querySelector(`h4.background_${continent}`);
   const continentStyles = window.getComputedStyle(continentClass);
   const continentColor = continentStyles.backgroundColor;
   svgPath.setAttribute("fill", continentColor);
