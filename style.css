@@ -53,6 +53,7 @@ nav ul li a:hover {
   background-color: var(--selected-color);
 }
 
+
 /* Countries and cards */
 #main {
   display: flex;
