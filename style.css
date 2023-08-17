@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 body {
@@ -41,8 +40,7 @@ nav ul li a {
   border: 2px solid #333;
   cursor: pointer;
   width: 100%;
-  transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 nav ul li a:hover {
@@ -51,8 +49,9 @@ nav ul li a:hover {
 
 .menu-item.selected {
   background-color: var(--selected-color);
+  border-bottom: 3px solid black; 
+  color: white; 
 }
-
 
 /* Countries and cards */
 #main {
