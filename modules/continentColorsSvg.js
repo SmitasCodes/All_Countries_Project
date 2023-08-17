@@ -61,6 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const continentName = continent.id.replace(/_svg$/, "");
 
     continent.style.cursor = "pointer";
+    continent.style.webkitTapHighlightColor = "transparent";
+
     const title = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "title"
